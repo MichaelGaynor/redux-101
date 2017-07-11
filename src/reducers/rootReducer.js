@@ -7,12 +7,16 @@
 
 // We need to get the combineReducers method from redux, to make a rootReducer 
 // the provider can use.
-import {  combineReducers } from 'redux';
+import { combineReducers } from 'redux';
 
 import studentReducer from './studentReducer';
+import SelectedStudent from './selectedStudentReducer';
+import timerReducer from './timerReducer';
 
 const rootReducer = combineReducers({
-    students: studentReducer
+    students: studentReducer,
+    selectedStudent: SelectedStudent,
+    timer: timerReducer
 })
 
 export default rootReducer;

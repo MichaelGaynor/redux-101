@@ -3,9 +3,9 @@
 // This is similar to components, they MUST have a render function.
 
 var SelectStudent = function(student){
-    console.log(student)
     return{
-        type: "PICK_STUDENT"
+        type: "PICK_STUDENT",
+        payload: student
     }
 }
 

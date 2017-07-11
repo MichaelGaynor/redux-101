@@ -1,11 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import SelectStudent from '../actions/SelectStudent';
+import SelectStudent from '../actions/SelectStudentAction';
+import Timer from '../actions/TimerAction';
 import { bindActionCreators } from 'redux';
 
 class ReduxStudents extends Component{
+    constructor(props) {
+        super(props);
+    }
+
+    componentDidMount() {
+        setInterval(()=>{
+             this.props.timerAction();
+        },1000)
+    }
+
     render(){
-        console.log(this.props.students)
         var studentArray  = [];
         this.props.students.map((student,index)=>{
             studentArray.push(
@@ -20,6 +30,8 @@ class ReduxStudents extends Component{
             <div>
                 <h1>This is ReduxStudents</h1>
                 {studentArray}
+                <hr/>
+                {this.props.selectedStudent} is doomed at {this.props.timer}.
             </div>
         )
     }
@@ -31,13 +43,16 @@ function mapStateToProps(state){
     return{
         // Inside of the state object we have the students property,
         // This exists because we made it a property in the root reducer.
-        students: state.students
+        students: state.students,
+        selectedStudent: state.selectedStudent,
+        timer: state.timer
     }
 }
 
 function mapDispatchToProps(dispatch){
     return bindActionCreators({
-        selectStudent: SelectStudent
+        selectStudent: SelectStudent,
+        timerAction: Timer
     }, dispatch)
 }
 
