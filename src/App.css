@@ -1,10 +1,10 @@
 .App {
   text-align: center;
-  animation: App-logo-spin infinite .3s linear;
+  /* animation: App-logo-spin infinite .3s linear; */
 }
 
 .App-logo {
-  animation: App-logo-spin infinite .3s linear;
+  /* animation: App-logo-spin infinite .3s linear; */
   height: 80px;
 }
 
@@ -25,5 +25,6 @@
 }
 
 li {
-  animation: App-logo-spin infinite 3s linear;
+  /* animation: App-logo-spin infinite 3s linear; */
+  list-style: none;
 }

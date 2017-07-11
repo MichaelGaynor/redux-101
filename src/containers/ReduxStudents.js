@@ -1,12 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import SelectStudent from '../actions/SelectStudent';
+import { bindActionCreators } from 'redux';
 
 class ReduxStudents extends Component{
     render(){
         console.log(this.props.students)
         var studentArray  = [];
         this.props.students.map((student,index)=>{
-            studentArray.push(<li key={index}>{student}</li>)
+            studentArray.push(
+                <li 
+                    key={index} 
+                    onClick={()=>this.props.selectStudent(student)}>
+                {student}
+                </li>
+            )
         })
         return(
             <div>
@@ -27,5 +35,15 @@ function mapStateToProps(state){
     }
 }
 
+function mapDispatchToProps(dispatch){
+    return bindActionCreators({
+        selectStudent: SelectStudent
+    }, dispatch)
+}
+
 // INSTEAD of exporting the class (component) we export connect.
-export default connect(mapStateToProps)(ReduxStudents);
+// Connect takes two args WHICH RETURN A FUNCTION that takes 1 arg.
+// -Connect takes state mapping function (So it's available in component props)
+// -Connect takes action mapping function (ditto)
+// -The return function of the connect function takes a component
+export default connect(mapStateToProps,mapDispatchToProps)(ReduxStudents);
