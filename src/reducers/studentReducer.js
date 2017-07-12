@@ -1,12 +1,12 @@
 export default function(state = null, action){
     return [
-        'Chad',
-        'Shane',
-        'Ian',
-        'Drew',
-        'Guido',
-        'Porscha',
-        'Carla',
-        'YingRong'
+        'OBEY',
+        'obey',
+        'ObEy',
+        'oBeY',
+        'OBEY',
+        'obey',
+        'OBEY OBEY',
+        'obey'
     ]
 }

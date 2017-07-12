@@ -28,10 +28,10 @@ class ReduxStudents extends Component{
         })
         return(
             <div>
-                <h1>This is ReduxStudents</h1>
+                <h1>You are getting very sleepy</h1>
                 {studentArray}
                 <hr/>
-                {this.props.selectedStudent} is doomed at {this.props.timer}.
+                <p>{this.props.selectedStudent} is OBEYING at {this.props.timer}.</p>
             </div>
         )
     }

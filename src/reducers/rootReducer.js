@@ -12,11 +12,13 @@ import { combineReducers } from 'redux';
 import studentReducer from './studentReducer';
 import SelectedStudent from './selectedStudentReducer';
 import timerReducer from './timerReducer';
+import weatherReducer from './weatherReducer';
 
 const rootReducer = combineReducers({
     students: studentReducer,
     selectedStudent: SelectedStudent,
-    timer: timerReducer
+    timer: timerReducer,
+    weather: weatherReducer
 })
 
 export default rootReducer;
